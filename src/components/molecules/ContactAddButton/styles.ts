@@ -9,9 +9,11 @@ export const Button = styled.button.attrs(() => ({
   border: none;
   border-radius: 8px;
   transition: filter 0.5s;
+  background-color: transparent;
+  height: 52px;
   &:hover {
     cursor: pointer;
-    filter: opacity(0.8);
+    filter: opacity(0.7);
   }
   @media (min-width: 768px) {
     display: flex;
@@ -20,8 +22,11 @@ export const Button = styled.button.attrs(() => ({
 
 export const ContentCreateContactText = styled.div`
   background-color: ${(props) => props.theme.colors.blue};
-  padding: 16px 24px;
+  height: 100%;
   border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
   @media (max-width: 768px) {
     display: none;
   }
@@ -30,10 +35,10 @@ export const ContentCreateContactText = styled.div`
 export const ContentAddIcon = styled.div`
   background-color: ${(props) => props.theme.colors.blueLight};
   display: flex;
-  padding: 16.5px 16px;
   border-radius: 0 8px 8px 0;
-  margin: 0 auto;
-
+  height: 100%;
+  align-items: center;
+  padding: 0 16px;
   @media (max-width: 768px) {
     border-radius: 8px;
   }
