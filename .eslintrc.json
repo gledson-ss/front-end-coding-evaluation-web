@@ -21,6 +21,14 @@
         "@typescript-eslint"
     ],
     "rules": {
+      
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "jsx-a11y/label-has-associated-control": ["error", {
+          "required": {
+            "some": ["nesting", "id"]
+          }
+      }],
         "quotes": [2, "single", { "avoidEscape": true }],
         "@typescript-eslint/quotes": [
           "error",
@@ -29,6 +37,7 @@
             "allowTemplateLiterals": true
           }
         ],
+        "react/prop-types": ["off"],
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": ["error"],
         "no-use-before-define": "off",
@@ -40,7 +49,7 @@
           }
         ],
         "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx", ".ts"]} ],
-        "max-len": ["warn", { "code": 80 }],
+        "max-len": ["warn", { "code": 100 }],
         "import/no-unresolved": [2, {"commonjs": true, "amd": true}],
         "import/extensions": [
           "error",
