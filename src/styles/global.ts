@@ -6,6 +6,7 @@ export default createGlobalStyle`
     height: 100%;
     max-width: 100vw;
     max-height: 100vh;
+    background-color: ${(props) => props.theme.colors.background}
   }
   * {
     margin: 0;
