@@ -17,7 +17,6 @@ export const Container = Modal.styled`
     padding: 24px 12px;
     width: auto;
   }
-
 `;
 
 export const Form = styled.form`
@@ -28,7 +27,6 @@ export const Form = styled.form`
 export const ButtonContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-wrap: wrap;
   justify-content: flex-end;
   margin-top: 24px;
   @media (max-width: 768px) {
