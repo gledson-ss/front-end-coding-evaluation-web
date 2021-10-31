@@ -1,20 +1,21 @@
 import create from 'zustand';
 
 interface useModalProps {
-  modalState: {
-    isOpen: boolean;
-  };
-  setIsOpen: (props: boolean) => void;
+  modalCreatelIsOpen: boolean,
+  modalEditlIsOpen: boolean,
+  setModalEditIsOpen: (props: boolean) => void;
+  setModalCreateIsOpen: (props: boolean) => void;
+
 }
 
 const useModal = create<useModalProps>((set) => ({
-  modalState: {
-    isOpen: false,
-  },
-  setIsOpen: (props) => set((state) => ({
-    modalState: {
-      isOpen: props,
-    },
+  modalCreatelIsOpen: false,
+  modalEditlIsOpen: false,
+  setModalCreateIsOpen: (props) => set(({
+    modalCreatelIsOpen: props,
+  })),
+  setModalEditIsOpen: (props) => set(({
+    modalEditlIsOpen: props,
   })),
 }));
 
