@@ -1,51 +1,90 @@
 import React from 'react';
 
+import { contactProps } from '../../../@types/contact';
+import { useContactList } from '../../../hooks/useContactList';
+import { useModal } from '../../../hooks/useModal';
+import ContactCityName from '../../atoms/ContactCityName';
+import ContactDescription from '../../atoms/ContactDescription';
+import ContactEditButton from '../../atoms/ContactEditButton';
+import ContactName from '../../atoms/ContactName';
+import EditIcon from '../../atoms/EditIcon';
+import TrashIcon from '../../atoms/TrashIcon';
 import * as Styled from './styles';
 
-const Contact: React.FC = () => (
-  <Styled.Container>
-    <Styled.NameContainer>
-      <Styled.NameContact>Gledson Santos de souza</Styled.NameContact>
-    </Styled.NameContainer>
-    <Styled.DataContainer>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>email:</Styled.ItemName>
-        <Styled.DataContact>algo@gledson.dev</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>date:</Styled.ItemName>
-        <Styled.DataContact>04/03/2000</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>cep:</Styled.ItemName>
-        <Styled.DataContact>58145000</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>street:</Styled.ItemName>
-        <Styled.DataContact>Rua tal</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>state:</Styled.ItemName>
-        <Styled.DataContact>PB</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>number:</Styled.ItemName>
-        <Styled.DataContact>IBGE</Styled.DataContact>
-      </Styled.ContainerItemName>
-      <Styled.ContainerItemName>
-        <Styled.ItemName>complement:</Styled.ItemName>
-        <Styled.DataContact>complemento aqui</Styled.DataContact>
-      </Styled.ContainerItemName>
-    </Styled.DataContainer>
-    <Styled.Footer>
-      <Styled.ButtonsContainer className="buttons">
-        <Styled.ButtonEdit type="button">
-          <Styled.IconEdit />
-        </Styled.ButtonEdit>
-      </Styled.ButtonsContainer>
-      <Styled.CityName>city: Montadas</Styled.CityName>
-    </Styled.Footer>
-  </Styled.Container>
-);
+interface componentProps {
+  listItem: contactProps;
+}
+
+const Contact: React.FC<componentProps> = ({ listItem }) => {
+  const { setModalEditIsOpen } = useModal();
+  const { setEditingContact, removeContact } = useContactList();
+
+  function handleEditingContact(contact: contactProps) {
+    setEditingContact(contact);
+    setModalEditIsOpen(true);
+  }
+
+  function handleRemoveContact(contact: contactProps) {
+    removeContact(contact.id);
+  }
+
+  return (
+    <Styled.Container>
+      <Styled.NameContainer>
+        <ContactName>{listItem.name}</ContactName>
+      </Styled.NameContainer>
+      <Styled.DataContainer>
+        <Styled.ContainerItemName>
+          <ContactDescription>email:</ContactDescription>
+          <ContactDescription>{listItem.email}</ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>date:</ContactDescription>
+          <ContactDescription>{listItem.date}</ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>cep:</ContactDescription>
+          <ContactDescription>{listItem.adress.cep}</ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>street:</ContactDescription>
+          <ContactDescription>
+            {listItem.adress.logradouro || 'api not found...'}
+          </ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>state:</ContactDescription>
+          <ContactDescription>{listItem.adress.uf}</ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>number:</ContactDescription>
+          <ContactDescription>{listItem.adress.ibge || 'api not found...'}</ContactDescription>
+        </Styled.ContainerItemName>
+        <Styled.ContainerItemName>
+          <ContactDescription>complement:</ContactDescription>
+          <ContactDescription>
+            {listItem.adress.complemento || 'api not found...'}
+          </ContactDescription>
+        </Styled.ContainerItemName>
+      </Styled.DataContainer>
+      <Styled.Footer>
+        <Styled.ButtonsContainer>
+          <ContactEditButton type="button" onClick={() => handleEditingContact(listItem)}>
+            <EditIcon />
+          </ContactEditButton>
+          <ContactEditButton type="button" onClick={() => handleRemoveContact(listItem)}>
+            <TrashIcon />
+          </ContactEditButton>
+        </Styled.ButtonsContainer>
+        <ContactCityName>
+          city:
+          {' '}
+          {listItem.adress.localidade}
+        </ContactCityName>
+      </Styled.Footer>
+
+    </Styled.Container>
+  );
+};
 
 export default Contact;
