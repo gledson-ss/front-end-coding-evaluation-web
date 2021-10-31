@@ -1,7 +1,7 @@
 import React from 'react';
 
-import InfoHeader from '../../molecules/InfoHeader';
 import ContactAddButton from '../../molecules/ContactAddButton';
+import InfoHeader from '../../molecules/InfoHeader';
 import * as Styled from './styles';
 
 const Header: React.FC = () => (
