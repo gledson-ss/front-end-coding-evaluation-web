@@ -11,6 +11,7 @@ export const Header = styled.header`
   max-width: 1280px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-top: 30px;
   padding-bottom: 172px;
 
