@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { FiPlusSquare } from 'react-icons/fi';
+import styled from 'styled-components';
 
 export const AddIcon = styled(FiPlusSquare)`
   color: ${(props) => props.theme.colors.white};
