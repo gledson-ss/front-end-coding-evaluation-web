@@ -1,9 +1,9 @@
 import React from 'react';
 
-import * as Styled from './styles';
-import WelcomeHeaderText from '../../atoms/WelcomeHeaderText';
-import MessageHeaderText from '../../atoms/MessageHeaderText';
 import ContactPageIcon from '../../atoms/ContactPageIcon';
+import MessageHeaderText from '../../atoms/MessageHeaderText';
+import WelcomeHeaderText from '../../atoms/WelcomeHeaderText';
+import * as Styled from './styles';
 
 const InfoHeader: React.FC = () => (
   <Styled.Container>
