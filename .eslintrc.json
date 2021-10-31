@@ -18,10 +18,11 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
+        "eslint-plugin-import-helpers"
     ],
     "rules": {
-      
+      "eslintreact/require-default-props": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
       "jsx-a11y/label-has-associated-control": ["error", {
@@ -59,7 +60,18 @@
             "tsx": "never"
           }
         ],
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "import-helpers/order-imports": [
+          "warn",
+          { // example configuration
+              "newlinesBetween": "always",
+              "groups": [
+                  "module",
+                  ["parent", "sibling", "index"]
+              ],
+              "alphabetize": { "order": "asc", "ignoreCase": true }
+          }
+      ]
     },
     "settings": {
       "import/resolver": {
