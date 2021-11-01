@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, FormEvent } from 'react';
 import { toast } from 'react-toastify';
 
 import { contactProps } from '../../../@types/contact';
@@ -50,8 +50,8 @@ const ModalEditContact: FC = () => {
     }
   }
 
-  function handleSubmit(event: any) {
-    const getEvent = event.target as HTMLInputElement[] | any;
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const getEvent = event.target as any;
     const cepValue = getEvent[3].value;
 
     getResponseApi(cepValue, getEvent);
