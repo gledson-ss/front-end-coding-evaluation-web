@@ -40,25 +40,3 @@ export const ContainerItemName = styled.li`
   margin-top: 24px;
   padding-left: 24px;
 `;
-
-export const DataContainer = styled.ul`
-  height: 310px;
-`;
-
-export const Footer = styled.footer`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: ${(props) => props.theme.colors.greyLight};
-  padding: 24px;
-  margin-top: 24px;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-`;
-
-export const ButtonsContainer = styled.div`
-  width: 110px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
