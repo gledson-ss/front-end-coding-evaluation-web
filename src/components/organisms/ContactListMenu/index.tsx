@@ -22,7 +22,7 @@ const ContactListMenu: FC = () => {
         {
           contacts.map((item: contactProps) => (
             <Styled.CardContainer>
-              <Contact key={item.name} listItem={item} />
+              <Contact key={item.id} listItem={item} />
             </Styled.CardContainer>
           ))
         }
