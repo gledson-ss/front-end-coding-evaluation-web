@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { useModal } from '../../../hooks/useModal';
-
 export const Input = styled.input.attrs((props) => ({
   type: props.type,
 }))`
