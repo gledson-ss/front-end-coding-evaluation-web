@@ -9,7 +9,6 @@ export const ButtonIcon = styled.button`
   }
   width: 45px;
   height: 45px;
-
   border-radius: 8px;
   &:hover {
     cursor: pointer;
